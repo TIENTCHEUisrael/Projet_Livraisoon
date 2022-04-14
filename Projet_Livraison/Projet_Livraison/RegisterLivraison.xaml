@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Projet_Livraison.RegisterLivraison">
+    <ContentPage.Content>
+        <Grid
+            RowSpacing="0"
+            ColumnSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="6*" />
+            </Grid.RowDefinitions>
+
+            <BoxView 
+                Grid.Row="0"
+                BackgroundColor="#00CCD6" />
+
+            <Image
+                Grid.Row="0"    
+                x:Name="Logo"
+                Source=""
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                HeightRequest="100"
+                WidthRequest="100"
+                />
+
+            <Label 
+                Grid.Row="1"
+                Text="Edit Livraison"
+                FontSize="30"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+            <StackLayout                
+                Grid.Row="2"
+                VerticalOptions="Fill"
+                HorizontalOptions="Center"
+                Spacing="1">
+
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label 
+                        Text="Reference:" />
+                    <Entry                        
+                            WidthRequest="300"
+                            x:Name="TxtReference"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label 
+                        Text="Lieu Livraison:" />
+                    <Entry                        
+                            WidthRequest="300"
+                            x:Name="TxtLieu"/>
+                </StackLayout>
+   
+
+                <controls:SignaturePadView
+	                x:Name="signatureView"
+	                StrokeWidth="3"
+	                StrokeColor="BlackWhite"
+	                BackgroundColor="Black" />
+                <StackLayout Orientation="Horizontal">
+                    <Button
+                            Grid.Row="2"
+                            Text="Save"
+                            x:Name="BtnSave"
+                            HorizontalOptions="Center"
+                            CornerRadius="15"
+                            BackgroundColor="#00CCD6"
+                            Clicked="BtnSave_Clicked"
+                            TextColor="Black"/>
+                    <Button         x:Name="BtnBack" 
+                                    Text="Cancel" 
+                                    HorizontalOptions="EndAndExpand"
+                                    BackgroundColor="Transparent" 
+                                    TextColor="Green" 
+                                    Clicked="BtnBack_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+
+            <!--Background-->
+            <BoxView
+                x:Name="Ecran"
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                BackgroundColor="Black"
+                Opacity="0.8"
+                IsVisible="False" />
+
+            <ActivityIndicator
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                x:Name="Loader"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Color="White"
+                IsRunning="True" 
+                IsVisible="False" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
